@@ -1,0 +1,72 @@
+@import '../../style/variables.scss';
+@import '../../style/buttons.scss';
+
+.carousel {
+	padding-bottom: 30px;
+	&__title {
+		color: $white-color;
+		border-bottom: 2px solid $red-color-100;
+		padding-bottom: 10px;
+		flex-grow: 1;
+	}
+	&__label {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__wrapper {
+		overflow: hidden;
+	}
+	&__inner {
+		display: flex;
+		a {
+			text-decoration: none;
+			color: $white-color;
+		}
+	}
+	&__item {
+		min-height: 20rem;
+		min-width: 15rem;
+		padding: 20px 8px 30px;
+		position: relative;
+		text-align: center;
+		color: $white-color;
+		font-weight: 900;
+		img {
+			opacity: 0.5;
+			width: 100%;
+			height: 100%;
+			border-radius: 2rem;
+			pointer-events: none;
+			cursor: default;
+		}
+		&:hover {
+			opacity: 0.7;
+			.carousel__text {
+				color:$red-color-100;
+			}
+			.play__button_outer {
+				opacity: 1;
+			}
+		}
+	}
+	&__text {
+		transition: all .4s ease-out;
+	}
+}
+
+.btn-white {
+	margin-left: 20px;
+	min-height: 10px !important;
+	padding: 4px 10px !important;
+}
+
+.play__button_outer {
+	opacity: 0;
+	transition: all .4s ease-out;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}

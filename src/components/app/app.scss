@@ -1,0 +1,7 @@
+@import '../../style/variables.scss';
+@import '../../style/container.scss';
+
+.wrapper {
+	min-height: 100vh;
+	background-color: $black-color-200;
+}

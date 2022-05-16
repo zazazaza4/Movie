@@ -1,0 +1,49 @@
+@import '../../style/variables.scss';
+@import '../../style/buttons.scss';
+
+.movies {
+	text-align: center;
+	padding-bottom: 30px;
+	&__title {
+		margin-top: 0;
+		background: transparent url('../../assets/bg_base.jpg') left top no-repeat;
+		background-size: cover;
+		text-align: center;
+		color: $white-color;
+		padding-top: 100px;
+	}
+}
+
+.search {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	input {
+		background: $black-color;
+		color: $white-color;
+		border-radius: 40px;
+		padding: 4px 20px;
+		&:focus {
+			box-shadow: 20px 0px 20px $black-color-200;
+		}
+	}
+}
+
+.btn__search {
+	min-height: 20px !important;
+	border-radius: 10% !important;
+	padding: 4px 16px !important;  
+}
+.btn {
+}
+
+.movies__list {
+	padding-bottom: 40px;
+	padding: 20px 20px 40px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr) ) ;
+  	column-gap: 3.1rem;
+  	li {
+  		list-style: none;
+	}
+}
