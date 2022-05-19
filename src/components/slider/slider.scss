@@ -1,8 +1,12 @@
 @import '../../style/variables.scss';
 @import '../../style/buttons.scss';
 
-.carousel {
-	padding-bottom: 30px;
+.slider {
+	position: relative;
+	min-height: 25rem;
+	a {
+		text-decoration: none;
+	}
 	&__title {
 		color: $white-color;
 		border-bottom: 2px solid $red-color-100;
@@ -56,6 +60,10 @@
 	}
 }
 
+.swiper-slide {
+    flex-shrink: inherit !important;
+ }
+
 .btn-white {
 	margin-left: 20px;
 	min-height: 10px !important;
@@ -67,6 +75,6 @@
 	transition: all .4s ease-out;
 	position: absolute;
 	top: 50%;
-	left: 50%;
+	left: 42%;
 	transform: translate(-50%,-50%);
 }

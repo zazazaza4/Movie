@@ -2,6 +2,12 @@
 @import '../../style/container.scss';
 
 .wrapper {
-	min-height: 100vh;
-	background-color: $black-color-200;
+	min-height: 100%;
+	background-color: $black-color;
+	display: flex;
+	flex-direction: column;
+}
+.main {
+	padding-top: 60px;
+	flex: 1 1 auto;
 }

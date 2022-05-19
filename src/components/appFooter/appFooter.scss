@@ -1,0 +1,119 @@
+@import '../../style/variables.scss';
+@import '../../style/container.scss';
+
+.footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    &__bg {
+        border-radius: 30px 30px 0 0;
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: blur(1px);
+        opacity: 0.2;
+        background: url('../../assets/footer_bg.jpg') 0 0 / cover  no-repeat;
+    }
+    box-shadow: 0 1px 1px 0 $black-color-100;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 45px 50px;
+    color: $white-color;
+    font-weight: 700;
+    font-size: 20px;
+    &__left {
+        z-index: 4;
+        p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            a {
+                display: block;
+                position: relative;
+                &:hover {
+                    color:$red-color-100;
+                    text-decoration: underline;
+                    cursor: pointer;
+                } 
+                &::before {
+                    font-size: 40px;
+                    content: '.';
+                    position: absolute;
+                    bottom: 0%;
+                    right: 110%;
+                }
+                &:first-child {
+                    &::before {
+                        content: '';
+                    }
+                }
+            }
+        }
+    }
+   
+  
+   &__right {
+        z-index: 4; 
+       a {
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        background-color: $black-color-200;
+        border-radius: 3px;
+        border: 1px solid $black-color;
+        font-size: 20px;
+        color: #ffffff;
+        text-align: center;
+        line-height: 35px;
+        margin-left: 3px;
+        transition:all .25s;
+        &:hover {
+            transform:scale(1.1);
+            border-color: $white-color;
+        }
+       }
+   }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        &__left {
+            p {
+                display: block;
+                a {
+                    margin-bottom: 15px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    &:first-child {
+                        &::before {
+                            content: '.';
+                        }
+                    }
+                }
+            }
+        }
+        &__left,
+        &__right {
+            text-align: center;
+        }
+
+        &__left {
+            p {
+                .footer__links { 
+                    line-height: 1.8;
+                }
+            }
+        }
+        &__right {
+            float: none;
+            margin: 0 auto 20px;
+        }
+    }
+  }
