@@ -17,6 +17,12 @@ const RandomMovie = () => {
 	useEffect(() => {
 		const id = Math.floor(Math.random() * 1000);
 		getMovieById(id).then((data) => movieLoad(data));
+		setInterval( () => {
+
+		}, 15000);
+
+		return clearInterval()
+		// eslint-disable-next-line
 	}, []);
 	
 	return (
@@ -34,13 +40,13 @@ const View = (data) => {
 		<div className="random__bg" style={{backgroundImage : `url(${image})`}}></div>
 			<div className="random__body _container">
 				<div className="random__text">
-					<div className="random__title">
+					<div className="title random__title">
 						{title}
 					</div>
 					<div className='random__descr'>
 						{overview}
 					</div>
-					<Link to={`/movies/${id}`} className="btn">Watch now</Link>
+					<Link to={`/movie/popular/${id}`} className="btn">Watch now</Link>
 				</div>	
 			</div>
 		</>

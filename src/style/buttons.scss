@@ -47,32 +47,3 @@
   }
 }
 
-// .play__button {
-//   margin: 0 auto;
-//   top: 20%;
-//   left: 7%;
-//   position: relative;  
-//   width: 0;
-//   height: 0;
-//   border-style: solid;
-//   border-width: 1em 0 1em 2em;
-//   border-color: transparent transparent transparent $white-color;
-//   opacity: .75; 
-//   &_outer {
-//     border-radius: 50%;
-//     width: 5em;
-//     height: 3em;
-//     background-color: $red-color-100;
-//     cursor: pointer;
-//     &:hover {
-//       background-color: $black-color-100;
-//     }
-//     &:active {
-//       background-color: $black-color-300;
-//     }
-//     &:hover .play-button {
-//       opacity: 1;
-//     }
-//   }
-// }
-

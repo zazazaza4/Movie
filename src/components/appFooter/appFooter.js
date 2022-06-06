@@ -10,13 +10,13 @@ const AppFooter = () => {
              <div className="footer__left _container">
 
                 <p className="footer__links">
-                    <a to="/">Home</a>
+                    <Link to="/">Home</Link>
 
-                    <a tp="/">About</a>
+                    <Link to="/about">About</Link>
 
-                    <a to="/">Faq</a>
+                    <Link to="/faq">Faq</Link>
 
-                    <a to="/">Contact</a>
+                    <Link to="/contact">Contact</Link>
                 </p>
             
             </div>

@@ -1,14 +1,15 @@
 @import '../../style/variables.scss';
-@import '../../style/container.scss';
+@import '../../style/global.scss';
 
 .movie {
 	margin: 0 auto;
 	a {
+		margin: auto;
 		transition: all .3s ease-in-out 0s;
 		display: block;
 		padding: 1rem 0.5rem;
 		border-radius: 2rem;
-		background: url('../../assets/image.jpg') 0 0 / 100% 100% no-repeat;
+		background: url('') 0 0 / 100% 100% no-repeat;
 		height: 20em;
 		width: 14em;
 		text-decoration: none;

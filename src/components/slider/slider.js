@@ -8,33 +8,40 @@ import setContext from '../../utils/setContext';
 import "swiper/css";
 import './slider.scss';
 
-const Slider = ({type, title}) => {
-	const [movies, setMovies] = useState(null);
-	const {getMoviesList, setProcess, process} = useMoviesServise();
+const Slider = ({type, title, category, similar = false, id = 0}) => {
+	const [items, setItems] = useState(null);
+	const {getMoviesList, getMovieBySimilar, setProcess, process} = useMoviesServise();
 
-	const movieLoad = (data) => {
-		setMovies(data);
+	const itemsLoad = (data) => {
+		setItems(data);
 		setProcess('confirmed')	
 	}
 
 	useEffect(() => {
-		getMoviesList(type).then(movieLoad);
+		if (similar) {
+			getMovieBySimilar(id, category).then(itemsLoad);;
+		} else {
+			getMoviesList(type, 1, category).then(itemsLoad);
+		}
+		// eslint-disable-next-line
 	}, []);
 
 	return (
 		<div className='slider _container'>
-			<div className="slider__label">
-				<h2 className="slider__title">
-					{title}
-				</h2>
-				<Link to={`movies/${type}`} className="btn btn-white">View more</Link>
-			</div>
-			{setContext(process, View, movies)}				
+			{!similar ? 
+				<div className="slider__label">
+					<h2 className="slider__title title">
+						{title}
+					</h2>
+					<Link to={`${category}/${type}`} className="btn btn-white">View more</Link>
+				</div> 
+				: null}
+			{setContext(process, View, items, type, category)}				
 		</div>
 	)
 }
 
-const View = ({data}) => {
+const View = ({data, type, category}) => {
 	return (
 		<Swiper
 				style={{position: 'relative'}}
@@ -47,7 +54,7 @@ const View = ({data}) => {
 			>
 	 	{
 			data.map(i => {
-				return <SwiperSlide key={i.id}> <MovieCard data={i}/> </SwiperSlide>
+				return <SwiperSlide key={i.id}> <MovieCard data={i} type={type} category={category}/> </SwiperSlide>
 			})
 		}
 		</Swiper>

@@ -1,0 +1,19 @@
+@import './variables.scss';
+
+._container {
+	margin: 0 auto;
+   max-width: $base * 300;
+   padding-left: $base;
+   padding-right: $base;
+}
+a {
+   text-decoration: none;
+   color: $white-color;
+}
+li {
+   list-style: none;
+}
+.title {
+   font-size: $base * 8;
+   font-weight: 900;
+}

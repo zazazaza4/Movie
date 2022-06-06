@@ -1,14 +1,13 @@
-import image from '../../assets/image.jpg';
 import { Link } from "react-router-dom";
 import './movieCard.scss';
-import imgTest from '../../assets/image.jpg';
 
-const movieCard = ({data}) => {
-	const {id = 0, title = '', image = imgTest} = data;
+const movieCard = ({category, type, data}) => {
+	const {id = 0, title = '', image = ''} = data;
+
 	return (
 		<div key={id} className="movie">
 			<Link 
-				to={`movies/${id}`} 
+				to={`/${category}/${type}/${id}`} 
 				style={{backgroundImage : `url(${image})`}}
 			 	className="movie__link">
 					<div className="play__button"></div>

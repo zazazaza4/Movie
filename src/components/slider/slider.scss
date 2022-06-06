@@ -4,9 +4,6 @@
 .slider {
 	position: relative;
 	min-height: 25rem;
-	a {
-		text-decoration: none;
-	}
 	&__title {
 		color: $white-color;
 		border-bottom: 2px solid $red-color-100;
@@ -24,10 +21,6 @@
 	}
 	&__inner {
 		display: flex;
-		a {
-			text-decoration: none;
-			color: $white-color;
-		}
 	}
 	&__item {
 		min-height: 20rem;

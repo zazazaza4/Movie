@@ -1,5 +1,5 @@
 @import '../../style/variables.scss';
-@import '../../style/container.scss';
+@import '../../style/global.scss';
 
 .header {
     background-color: $black-color-100;
@@ -41,9 +41,6 @@
     }
     &__list {
         display: flex;
-        li {
-            list-style: none;
-        }
     }
     &__item {
         margin-left: $base * 13; 

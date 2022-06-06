@@ -40,7 +40,7 @@ const AppHeader = () => {
                                     <li className="header__item">
                                         <NavLink 
                                             style={({ isActive }) => ({color: isActive ? "#FF4742" : "" })} 
-                                            to="/movies/popular" 
+                                            to="/movie" 
                                             className="header__link">
                                                 Movies
                                         </NavLink>
@@ -48,7 +48,7 @@ const AppHeader = () => {
                                     <li className="header__item">
                                         <NavLink 
                                             style={({ isActive }) => ({color: isActive ? "#FF4742" : "" })} 
-                                            to="/tv-series" 
+                                            to="/tv" 
                                             className="header__link">
                                                 TV Series
                                         </NavLink>

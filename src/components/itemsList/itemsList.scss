@@ -6,14 +6,17 @@
 	position: relative;
 	min-height: 45vh;
 	padding-bottom: 30px;
+	&__list {
+		min-height: 40vh;
+	}
 	&__title {
 		margin-top: 0;
 		font-size: 50px;
-		background: transparent url('../../assets/bg_base.jpg') left top no-repeat;
+		background: transparent url('../../assets/footer_bg.jpg') left top no-repeat;
 		background-size: cover;
 		text-align: center;
-		color: $white-color;
-		padding-top: 100px;
+		color: $red-color-100;
+		padding-top: 170px;
 	}
 }
 
@@ -37,16 +40,9 @@
 	border-radius: 10% !important;
 	padding: 4px 16px !important;  
 }
-.btn {
-}
 
 .movies__list {
-	padding-bottom: 40px;
 	padding: 20px 20px 40px;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr) ) ;
-  	li {
-
-  		list-style: none;
-	}
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr) );
 }

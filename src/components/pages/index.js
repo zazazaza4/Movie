@@ -1,9 +1,11 @@
 import HomePage from "./HomePage";
-import MoviesPage from "./MoviesPage";
-import TVSeriesPage from "./TVSeriesPage";
+import ListPage from './ListPage';
+import Page404 from './Page404';
+import SingleMovieLayout from './SingleMovieLayout/SingleMovieLayout';
 
 export {
     HomePage,
-    MoviesPage,
-    TVSeriesPage
+    ListPage,
+    Page404,
+    SingleMovieLayout
 }

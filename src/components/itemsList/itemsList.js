@@ -1,14 +1,19 @@
-import {useState, useEffect, useMemo} from 'react';
+import {useState, useEffect, useMemo } from 'react';
+
+import {
+  useLocation
+} from "react-router-dom";
+
+
 import Spinner from "../spinner/spinner";
 import ErrorMessage from '../errorMessage/errorMessage';
 
-import { Link } from "react-router-dom";
 import MovieCard from '../movieCard/movieCard'
 import useMoviesServise from "../../services/useMoviesService";
 
-import './moviesList.scss';
+import './itemsList.scss';
 
-const setContext = (process, Component, data,newItemLoading) => {
+const setContext = (process, Component, data, newItemLoading) => {
 	switch (process) {
 		case 'waiting':
 			return  <Spinner />;
@@ -23,19 +28,21 @@ const setContext = (process, Component, data,newItemLoading) => {
 	}
 }
 
-const MoviesList = ({type}) => {
+const ItemsList = ({type, category}) => {
 	const [movies, setMovies] = useState([]);
-	const [newItemLoading, setNewItemLoading] = useState(false);
-	const [page, setPage] = useState(1);
+	const [newItemLoading, setNewItemLoading] = useState();
+	const [page, setPage] = useState(null);
 	const [movieEnded, setMovieEnded] = useState(false);
+	const location = useLocation();
 
 	const {getMoviesList, setProcess, process} = useMoviesServise();
 
 	const movieLoad = (newMovie) => {
 		let ended = false;
-		// if (newMovie.length < 40) {
-		// 	ended = true;
-		// }
+		if (newMovie.length < 20) {
+			ended = true;
+		}
+		console.log('movies');
 		setMovies(movies => [...movies, ...newMovie]);
 		setNewItemLoading(newItemLoading => false);
 		setPage(page => page + 1);
@@ -44,23 +51,24 @@ const MoviesList = ({type}) => {
 
 	const onRequest = (page, intial) => {
 		intial ? setNewItemLoading(false) : setNewItemLoading(true);
-		getMoviesList(type, page)
+		console.log(page);
+		getMoviesList(type, page , category)
 		.then(movieLoad)
 		.then(() => setProcess('confirmed'));
 	}
 
 	useEffect(() => {
+		setMovies([]);
+		setPage(1);
 		onRequest(page, true);
-	}, []);
+		// eslint-disable-next-line
+	}, [type, category, location.pathname]);
 
 	const renderMovies = () => {
-		return (movies.map(i => <MovieCard data={i}/>))
+		return (movies.map(i => <MovieCard category={category} type={type} data={i}/>))
 	}
 
-	const elements = useMemo( () => {
-		return setContext(process, () => renderMovies(), newItemLoading)
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [process]);
+	const elements = useMemo( () =>  setContext(process, () => renderMovies(), newItemLoading)// eslint-disable-next-line, [process]);
 
 	return (
 		<div className="movies">
@@ -68,9 +76,9 @@ const MoviesList = ({type}) => {
 				{elements}
 			</ul>
 			<button
-				disabled={newItemLoading}
+				disabled={movieEnded}
 				onClick={() => onRequest(page)}
-				style={{ 'display': false ? 'none' : '' }} 
+				style={{ 'display': movieEnded ? 'none' : '' }} 
 				className='btn'>
 					Load more
 			</button>
@@ -78,4 +86,4 @@ const MoviesList = ({type}) => {
 	)
 }
 
-export default MoviesList;
+export default ItemsList;
